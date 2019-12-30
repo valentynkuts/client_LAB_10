@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Show students</title></head>
+
+<body>
+<a href="/addStudent">Add Students</a>
+<a href="/updateStudent">Update Students</a>
+<a href="/deleteStudent">Delete Students</a>
+<table>
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> First name </th>
+        <th> Last name </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${students.empty}">
+        <td colspan="2"> No students available </td>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td><span th:text="${student.id}"> Id </span></td>
+        <td><span th:text="${student.firstName}"> First name </span></td>
+        <td><span th:text="${student.lastName}"> Last name </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
